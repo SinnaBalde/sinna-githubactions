@@ -2,12 +2,17 @@ name: Mon premier workflow
 on: [push]
 
 jobs:
-  say-hello:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - run : echo ${{ 42 }}
-      - run : echo ${{ 'main' == 'top' }}
-      - run : echo ${{ contains(github.ref, 'main') }}
+      - run : echo build 
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run : echo deploy in prod  
+
+      
 
 
 
