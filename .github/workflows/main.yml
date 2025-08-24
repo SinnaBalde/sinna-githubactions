@@ -6,9 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo ::notice::Un message info
-          echo ::warning::Un warning 
-          echo ::error::Une erreur  
+          echo ::group::mon group
+          echo 1 
+          echo 2 
+          echo 3
+          echo 4 
+          echo ::endgroup::
 
 
 
