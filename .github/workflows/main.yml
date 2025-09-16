@@ -5,14 +5,21 @@ jobs:
   build: 
     runs-on: ubuntu-latest
     steps:
-      - id: step1
-      - run: |
-          echo $GITHUB_ENV
-          echo FROM_STEP_1=value_step_1 >> $GITHUB_ENV
-      - id: step2
-      - run: |
-          echo $FROM_STEP_1
-          echo ${{ env.FROM_STEP_1 }}
+      - name: Step 1 - Définition variable
+        id: step1
+        run: |
+          echo "Définition de FROM_STEP_1"
+          echo "FROM_STEP_1=value_step_1" >> $GITHUB_ENV
+      
+      - name: Step 2 - Utilisation variable
+        id: step2
+        run: |
+          echo "Affichage avec syntaxe shell: $FROM_STEP_1"
+          echo "Affichage avec contexte: ${{ env.FROM_STEP_1 }}"
+      
+      - name: Step 3 - Démonstration
+        run: |
+          echo "La variable persiste: $FROM_STEP_1"
 
   #deploy: 
    # needs: build
