@@ -4,15 +4,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: install nodejs
-        uses: actions/setup-node@v4
-      - name: fetch repository
+      - name: Fetch repository
         uses: actions/checkout@v4
-      - name: configure cache
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+
+      - name: Configure cache
         uses: actions/cache@v3
         with:
-          key: ${{ runner.os }}-${{ hashFiles('./vite-project/package.json') }}
-          path: ./vite-project/.npm
-      - name: insall dependencies
-        run: npm ci --cache .npm --prefer-offline
+          key: ${{ runner.os }}-npm-${{ hashFiles('./vite-project/package.json') }}
+          path: |
+            ~/.npm
+            ./vite-project/node_modules
+
+      - name: Install dependencies
+        run: npm install --prefer-offline
         working-directory: ./vite-project
