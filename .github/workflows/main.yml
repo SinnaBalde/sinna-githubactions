@@ -7,7 +7,7 @@ jobs:
     steps:
       - run: echo ${{ 42 }}
       - run: echo ${{ 'main' == 'top' }}
-      - run: echo ${{ contains(github.ref, 'main' }}
+      - run: echo ${{ contains(github.ref, 'main') }}
 
 
           
