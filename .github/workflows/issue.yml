@@ -1,0 +1,10 @@
+name: evenement issues
+on:
+  issues:
+    types:
+      - opened
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo pull request 
