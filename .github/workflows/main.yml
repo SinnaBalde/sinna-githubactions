@@ -4,11 +4,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo $GITHUB_STEP_SUMMARY
       - run: |
-          echo '# Le titre de mon workflow' >> $GITHUB_STEP_SUMMARY
-          echo ' Le titre de mon workflow :rocket:' >> $GITHUB_STEP_SUMMARY
-          echo '' >> $GITHUB_STEP_SUMMARY
-          echo '- un' >> $GITHUB_STEP_SUMMARY
-          echo '- deux' >> $GITHUB_STEP_SUMMARY
-          echo '- trois' >> $GITHUB_STEP_SUMMARY
+          titre=${{ github.event.head_commit.message }}
+          echo Hello world !
