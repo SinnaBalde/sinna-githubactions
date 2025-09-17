@@ -3,14 +3,8 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - uses: actions/checkout@v4
       - run: |
-          echo 123 > test.txt 
-          git config --global user.email "sinnab98@gmail.com"
-          git config --global user.name "Mamadou Sinna Balde"
-          git add test.txt
-          git commit -m "Ajout du fichier"
-          git push origin main
+          echo Very long step
+          sleep 60
+          echo Done !
