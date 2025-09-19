@@ -1,12 +1,14 @@
 name: Mon premier workflow
-on:
-  push:
-    branches:
-     - main 
-     - feature
+on: push
 
 jobs:
   build:
-    runs-on: ubuntu-latest  
+    runs-on: ubuntu-latest
     steps:
-      - run: echo JOB DONE
+      - name: install nodejs
+        uses: actions/setup-node@v4
+      - name: fetch repository
+        uses: actions/checkout@v4
+      - name: install dependencies
+        run: npm install
+        working-directory: ./vite-project
