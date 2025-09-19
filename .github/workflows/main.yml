@@ -1,20 +1,14 @@
 name: Mon premier workflow
 on: [push]
 
-env:
-  VAR_1: from workflow 
-
 jobs:
-  say-hello:
-    env:
-      VAR_2: from job 
+  build:
     runs-on: ubuntu-latest  
     steps:
-      - name: hello
-        env:
-          VAR_3: from step
-        run: |
-          echo VAR_1: $VAR_1
-          echo VAR_1: $VAR_2
-          echo VAR_3: $VAR_3
-          echo GITHUB_REF: $GITHUB_REF
+      - run: echo build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest 
+    steps:
+      - run: echo deploy in prod
